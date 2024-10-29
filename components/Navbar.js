@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import Link from 'next/link';
 import { Button } from "@/components/ui/button"
 import {
     Sheet,
@@ -12,15 +11,20 @@ import {
 } from "@/components/ui/sheet"
 
 import { ModeToggle } from './theme-btn';
-import LoadingBar from 'react-top-loading-bar';
+// import LoadingBar from 'react-top-loading-bar';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 const navLinks = [
     {
         title: 'Home',
-        path: '/home'
+        path: '/'
     },
+    // {
+    //     title: 'Feed',
+    //     path: '/feed'
+    // },
     {
         title: 'About',
         path: '/about'
@@ -37,70 +41,55 @@ const navLinks = [
 
 const Navbar = () => {
 
-    const [progress, setProgress] = useState(0)
+    // const [progress, setProgress] = useState(0)
     const pathname = usePathname()
 
-    useEffect(() => {
-      setProgress(20)
+    // useEffect(() => {
+    //   setProgress(20)
 
-      setTimeout(() => {
-        setProgress(40)
-      }, 100);
+    //   setTimeout(() => {
+    //     setProgress(40)
+    //   }, 100);
 
-      setTimeout(() => {
-        setProgress(100)
-      }, 400);
+    //   setTimeout(() => {
+    //     setProgress(100)
+    //   }, 400);
      
-    }, [pathname])
+    // }, [pathname])
 
-    useEffect(() => {
-      setTimeout(() => {
-       setProgress(0)
-      }, 50);
-    }, [])
-    
+    // useEffect(() => {
+    //   setTimeout(() => {
+    //    setProgress(0)
+    //   }, 50);
+    // }, [])
     
     return (
-        <nav className="p-4 bg-background/50 sticky top-0 backdrop-blur border-b z-10">
-            <LoadingBar
-        color='#933ce6'
-        progress={progress}
-        onLoaderFinished={() => setProgress(0)}
-      />
+        <nav className="py-8 xl:12 text-white">
             <div className="container mx-auto flex justify-between items-center border-b-4 duration-100 transition-transform pb-2 border-primary">
-                <Link href="/" className="flex group items-center gap-1">
+                <Link href={"/"} className="flex group items-center gap-1">
                     <p className="text-[26px] text-white font-extrabold max-sm:hidden capitalize group-hover:text-primary">
                         Matters<span className='text-primary group-hover:text-white'>.</span>
                     </p>
                 </Link>
-                <div className="hidden md:flex text-md gap-4 items-center capitalize">
-                    {/* <Link href="/" className="hover:scale-105 hover:font-semibold transition-transform duration-300"> 
-                        Home
+                <div className="hidden md:flex text-white gap-8 items-center capitalize">
+                    {navLinks.map((link, index) => (
+                        <Link 
+                            href={link.path} 
+                            key={index}
+                            className={`${link.path === pathname && 'text-primary font-bold'} hover:text-primary hover:font-bold sm:text-xl transition-all`}
+                        >
+                            {link.title}
                         </Link>
-                        <Link href="/about" className="hover:scale-105 hover:font-semibold transition-transform duration-300">
-                        About
-                        </Link>
-                        <Link href="/blog" className="hover:scale-105 hover:font-semibold transition-transform duration-300">
-                        Blog
-                        </Link>
-                        <Link href="/contact" className="hover:scale-105 hover:font-semibold transition-transform duration-300">
-                        Contact
-                        </Link> */}
+                    ))}
+                    {/* 
                     <div className='flex items-center'>
-                        {navLinks.map((nav, index) => {
-                            <Link href={nav.path} key={index}> 
-                                <Button className="hover:scale-105 hover:font-semibold transition-transform duration-300">
-                                    {nav.title}
-                                </Button>
-                            </Link>
-                        }
-                        )}
                         <Button className="mx-1" variant="outline">Login</Button>
                         <Button className="mx-1" variant="outline">Signup</Button>
                         <ModeToggle />
-                    </div>
+                    </div> 
+                    */}
                 </div>
-
+{/* 
                 <div className="md:hidden">
                         <span className="mx-2"> 
                             <ModeToggle />
@@ -140,12 +129,12 @@ const Navbar = () => {
                     </Sheet>
 
                 </div>
-
+ */}
 
             </div>
 
-            <nav className="flex-between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10">
-            </nav>
+            {/* <nav className="flex-between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10">
+            </nav> */}
         </nav>
     );
 };
