@@ -21,10 +21,10 @@ const navLinks = [
         title: 'Home',
         path: '/'
     },
-    // {
-    //     title: 'Feed',
-    //     path: '/feed'
-    // },
+    {
+        title: 'Feed',
+        path: '/feed'
+    },
     {
         title: 'About',
         path: '/about'
