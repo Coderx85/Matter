@@ -10,6 +10,13 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 
+import {
+    SignInButton,
+    SignedIn,
+    SignedOut,
+    UserButton
+  } from '@clerk/nextjs'
+
 import { ModeToggle } from './theme-btn';
 // import LoadingBar from 'react-top-loading-bar';
 import Link from 'next/link';
@@ -72,6 +79,14 @@ const Navbar = () => {
                     </p>
                 </Link>
                 <div className="hidden md:flex text-white gap-8 items-center capitalize">
+                    
+                <SignedOut>
+                    <Button className="mx-1" variant="outline">
+                        <SignInButton />
+                    </Button>
+                </SignedOut>
+
+                <SignedIn>
                     {navLinks.map((link, index) => (
                         <Link 
                             href={link.path} 
@@ -81,6 +96,10 @@ const Navbar = () => {
                             {link.title}
                         </Link>
                     ))}
+                    <UserButton />
+                </SignedIn>
+                
+                    
                     {/* 
                     <div className='flex items-center'>
                         <Button className="mx-1" variant="outline">Login</Button>
