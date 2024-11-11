@@ -22,27 +22,34 @@ import { ModeToggle } from './theme-btn';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 // import { useEffect, useState } from 'react';
+import { FaBlog, FaDesktop, FaHome, FaNewspaper, FaPhone } from 'react-icons/fa';
+import Logo from './Logo'
 
 const navLinks = [
     {
         title: 'Home',
-        path: '/'
+        path: '/',
+        icon: <FaHome />
     },
     {
         title: 'Feed',
-        path: '/feed'
+        path: '/feed',
+        icon: <FaNewspaper />
     },
     {
         title: 'About',
-        path: '/about'
+        path: '/about-me',
+        icon: <FaDesktop />
     },
     {
         title: 'Blog',
-        path: '/blog'
+        path: '/blog',
+        icon: <FaBlog />
     },
     {
         title: 'Contact',
-        path: '/contact'
+        path: '/contact',
+        icon: <FaPhone />
     }
 ]
 
@@ -73,11 +80,7 @@ const Navbar = () => {
     return (
         <nav className="py-8 xl:12 text-white">
             <div className="container mx-auto flex justify-between items-center border-b-4 duration-100 transition-transform pb-2 border-primary">
-                <Link href={"/"} className="flex group items-center gap-1">
-                    <p className="text-[26px] text-white font-extrabold max-sm:hidden capitalize group-hover:text-primary">
-                        Matters<span className='text-primary group-hover:text-white'>.</span>
-                    </p>
-                </Link>
+                <Logo />
                 <div className="hidden md:flex text-white gap-8 items-center capitalize">
                     
                 <SignedOut>
@@ -91,9 +94,9 @@ const Navbar = () => {
                         <Link 
                             href={link.path} 
                             key={index}
-                            className={`${link.path === pathname && 'text-primary font-bold'} hover:text-primary hover:font-bold sm:text-xl transition-all`}
-                        >
-                            {link.title}
+                            className={`${link.path === pathname && 'text-primary font-bold'} hover:text-primary flex justify-center text-center gap-2 hover:font-bold sm:text-xl transition-all`}
+                        >   
+                            {link.icon}{link.title}
                         </Link>
                     ))}
                     <UserButton />
