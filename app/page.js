@@ -4,6 +4,7 @@ import Typed from 'typed.js';
 import React, {useRef, useEffect} from 'react';
 import Image from 'next/image';
 import Link from 'next/link'
+import Footer from '@/components/Footer';
 
 const Home = () => {
     // Create reference to store the DOM element containing the animation
@@ -22,9 +23,9 @@ const Home = () => {
     }, []); 
 
   return (
-    <div className="container mx-auto h-full">
-      <div className="flex xl:flex-row flex-col items-center sm:px-5 justify-between">
-        <div className="text-center xl:text-left order-2 xl:order-none">
+    <div className="container mx-auto h-full min-h-[580px]">
+      {/* <div className="flex xl:flex-row flex-col items-center sm:px-5 justify-between">
+        <div className="text-center xl:text-left order-2 xl:order-none"> */}
           <h1 className="text-3xl leading-snug text-gray-800 dark:text-gray-200 md:text-4xl">
             A <span className="font-semibold">free repository</span> for community <br className="hidden lg:block" /> components using <span className="font-semibold text-primary"><span ref={el} /></span>
           </h1>
@@ -36,8 +37,8 @@ const Home = () => {
              
             </form>
           </div>
-        </div>
-        {/* Form Section */}
+        {/* </div> */}
+        {/* Form Section
         <div className="order-1 backdrop-blur-3xl bg-gray-800 py-8 mx-auto px-6 min-w-fit content-center h-4/5 w-6/12 justify-center rounded-lg shadow-md xl:order-none mb-8 xl:mb-0 items-center">
           <h2 className="text-3xl font-bold text-center mb-6 text-white">Login To Matters</h2>
           <form 
@@ -67,8 +68,9 @@ const Home = () => {
           <Link href="/register" className='mt-20 underline text-red-300 mx-auto px-auto text-lg'>
             Create an account
           </Link>
-        </div>
-      </div>
+        </div> */}
+      {/* // </div> */}
+      {/* <Footer /> */}
     </div>
   );
 };
