@@ -33,7 +33,7 @@ const navLinks = [
     },
     {
         title: 'Feed',
-        path: '/feed',
+        path: '/new-post',
         icon: <FaNewspaper />
     },
     {
