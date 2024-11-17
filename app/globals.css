@@ -31,7 +31,7 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
+    --primary: #780606;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -78,12 +78,33 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
+  h1{
+    @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+  }
+
+  h2{
+    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+  }
+
+  h3{
+    @apply text-[20px] xl:text-[24sspx] leading-[1.1] font-semibold;
+  }
+  
+  .text-outline{
+    -webkit-text-stroke: 1px #ffffff;
+  }
+
+  .text-outline-hover{
+    -webkit-text-stroke: 1px #166466;
+  }
+
 }
 
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border transition-all duration-200;
   }
   body {
     @apply bg-background text-foreground;
